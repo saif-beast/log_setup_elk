@@ -1,5 +1,14 @@
 version: '3'
 services:
+  logstash:
+    build:
+      context: ./
+      dockerfile: Dockerfile.logstash
+    ports:
+     - "5044:5044"
+    image: logstash_enveu:latest
+    depends_on:
+     - elastic_kibana
   elastic_kibana:
     build:
       context: ./
@@ -8,10 +17,3 @@ services:
      - "9200:9200"
      - "5601:5601"
     image: elastic_kibana_enveu:latest
-  logstash:
-    build:
-      context: ./
-      dockerfile: Dockerfile.logstash
-    ports:
-     - "5044:5044"
-    image: logstash_enveu:latest
