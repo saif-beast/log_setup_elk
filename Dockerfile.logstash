@@ -26,3 +26,7 @@ RUN apt-get update
 ##########################################
 RUN apt-get install logstash -y
 COPY logstash-application-log.conf /etc/logstash/conf.d/logstash-application-log.conf
+
+COPY entrypoint.logstash.sh /entrypoint.logstash.sh
+RUN chmod +x entrypoint.logstash.sh
+ENTRYPOINT /entrypoint.logstash.sh

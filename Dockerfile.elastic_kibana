@@ -31,12 +31,6 @@ COPY elasticsearch.yml /etc/elasticsearch/elasticsearch.yml
 RUN apt-get install kibana -y
 COPY kibana.yml /etc/kibana/kibana.yml
 
-##########################################
-########    Installing Logstash   ########
-##########################################
-RUN apt-get install logstash -y
-#COPY kibana.yml /etc/kibana/kibana.yml
-
 ##### ENTRYPOINT #####
 COPY entrypoint.sh /entrypoint.sh
 RUN chmod +x /entrypoint.sh

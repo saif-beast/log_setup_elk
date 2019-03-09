@@ -1,0 +1,17 @@
+version: '3'
+services:
+  elastic_kibana:
+    build:
+      context: ./
+      dockerfile: Dockerfile.elastic_kibana
+    ports:
+     - "9200:9200"
+     - "5601:5601"
+    image: elastic_kibana_enveu:latest
+  logstash:
+    build:
+      context: ./
+      dockerfile: Dockerfile.logstash
+    ports:
+     - "5044:5044"
+    image: logstash_enveu:latest
